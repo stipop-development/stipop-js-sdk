@@ -3,7 +3,7 @@
 Stipop Sticker JS SDK
 
 ```sh
-npm install mypluralize --save
+npm install stipop-js-sdk --save
 ```
 
 ## Usage Example
