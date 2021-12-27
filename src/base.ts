@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+global.fetch = require('node-fetch');
 
 export interface Body {
     pageMap?: PageMap
@@ -45,12 +45,16 @@ export abstract class Base {
 
         const headers : object = {
             apikey : this.apiKey,
-            'Content-type' : 'application/json',
+            'Content-Type' : 'application/json',
             s_meta : this.s_meta
         };
 
         const config : object = {
-            headers,
+            headers:{
+                apikey : this.apiKey,
+                'content-type' : 'application/json',
+                s_meta : this.s_meta
+            },
             method:"get"
         };
 
@@ -58,7 +62,7 @@ export abstract class Base {
 
             const res = await fetch(`${this.url}${this.version}${endpoint}`, config);
 
-            const json = await res.json();
+            const json:any = await res.json();
             
             const header = json.header;
             const body = json.body;
@@ -107,7 +111,7 @@ export abstract class Base {
 
             const res = await fetch(`${this.url}${this.version}${endpoint}`, config);
 
-            const json = await res.json();
+            const json:any = await res.json();
             
             const header = json.header;
             const body = json.body;
@@ -156,7 +160,7 @@ export abstract class Base {
 
             const res = await fetch(`${this.url}${this.version}${endpoint}`, config);
 
-            const json = await res.json();
+            const json:any = await res.json();
             
             const header = json.header;
             const body = json.body;
@@ -204,7 +208,7 @@ export abstract class Base {
 
             const res = await fetch(`${this.url}${this.version}${endpoint}`, config);
 
-            const json = await res.json();
+            const json:any = await res.json();
             
             const header = json.header;
             const body = json.body;
