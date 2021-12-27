@@ -6,7 +6,7 @@ Stipop Sticker JS SDK
 npm install mypluralize --save
 ```
 
-## Usage
+## Usage Example
 
 ### Javascript es5
 ```javascript 
