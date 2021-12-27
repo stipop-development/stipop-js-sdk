@@ -1,0 +1,37 @@
+{
+  "name": "stipop-js-sdk",
+  "version": "0.0.1-beta",
+  "description": "stipop sticker sdk",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stipop-development/stipop-js-sdk.git"
+  },
+  "keywords": [
+    "stipop",
+    "sticker",
+    "sticker-api",
+    "api"
+  ],
+  "author": "Stipop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stipop-development/stipop-js-sdk/issues"
+  },
+  "homepage": "https://stipop.io",
+  "dependencies": {
+    "active-resource": "^1.0.0-beta.7",
+    "node-fetch": "^2.6.1",
+    "querystringify": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.11",
+    "@types/querystringify": "^2.0.0",
+    "ts-node": "^10.1.0"
+  }
+}
