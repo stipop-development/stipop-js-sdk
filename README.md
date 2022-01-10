@@ -512,12 +512,12 @@ const data = await client.getCuration(params);
       "title": "Today’s Sticker",
       "type": "B",
       "imgUrl": null,
-      "language": "en,
+      "language": "en",
       "country": "us",
       "packageList": [{
         "packageId": 8036,
         "packageName": null,
-        ""artistName": null,
+        "artistName": null,
         "packageImg": null,
         "stickerImg": null,
         "cardImgUrl": "https://img...mLAVMWt.png",
@@ -626,4 +626,313 @@ const data = await client.getSearch(params);
 |keyword	|string|	Search tag	      |
 |packageName	|Integer	| Sticker package name| 
 |stickerImg	|string|	Sticker image url|
+
+
+### getKeyword()
+Use the Trending Search Terms API to show search tag suggestions based on trendy searches made by users.
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| lang          | Specify default language for regional stickers.</br> Use a 2-letter ISO 639-1 language code. </br><b>Default Value: en</b> | String        | false          |
+| countryCode   | Specify default country for local stickers. </br> Use a 2-letter ISO 3166-1 country code.</br> <b>Default Value: US</b> | String        | false           |
+
+
+### Examples
+```js
+const params = {
+    userId: '9937',
+    lang: 'en',
+    countryCode: 'US'
+}
+
+const data = await client.getKeyword(params);
+```
+
+### Response Format
+```json
+{
+  {
+    "header": {
+      "code": "0000",
+      "status": "success",
+      "message": "success"
+    },
+    "body": {
+      "keywordList": [
+      {
+        "keyword": "hi"
+      },
+      {
+        "keyword": "hello"
+      },
+      {
+        "keyword": "thanks"
+      }
+    ]
+    }
+}
+```
+
+| Attribute Name | Type | Description |
+| -------------- | ---- | ----------- |
+|keyword	|string|	Search tag	      |
+
+
+### getKeywordRecent()
+The Recent Search API shows a list of recent search tags made by a user.
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+
+
+### Examples
+```js
+const params = {
+    userId: '9937'
+}
+
+const data = await client.getKeywordRecent(params);
+```
+
+### Response Format
+```json
+{
+  {
+    "header": {
+      "code": "0000",
+      "status": "success",
+      "message": "success"
+    },
+    "body": {
+      "keywordList": [
+      {
+        "keyword": "hi"
+      },
+      {
+        "keyword": "hello"
+      },
+      {
+        "keyword": "thanks"
+      }
+    ]
+    }
+}
+```
+
+| Attribute Name | Type | Description |
+| -------------- | ---- | ----------- |
+|keyword	|string|	Search tag	      |
+
+
+### deleteKeywordAll()
+전체 키워드 삭제
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+
+
+### Examples
+```js
+const params = {
+    userId: '9937'
+}
+
+const data = await client.deleteKeywordAll(params);
+```
+
+### Response Format
+```json
+{
+  "header": {
+    "code": "0000",
+    "status": "success",
+    "message": "success"
+  },
+  "body": []
+}
+```
+
+
+### deleteKeyword()
+개별 키워드 삭제
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| keyword | 삭제할 키워드 | String | true |
+
+### Examples
+```js
+const params = {
+    userId: '9937',
+    keyword: 'cute'
+}
+
+const data = await client.deleteKeyword(params);
+```
+
+### Response Format
+```json
+{
+  "header": {
+    "code": "0000",
+    "status": "success",
+    "message": "success"
+  },
+  "body": []
+}
+```
+
+### downloadPack()
+The Recent Search API shows a list of recent search tags made by a user.
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| packageId | The [packageId] of a sticker pack, NOT stickerId.</br>Example: 6363, 5636, 5859 | string | true|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| isPurchase | Free Sticker Store: Set isPurchase as N.<br/> Paid Sticker Store: Set isPurchase as Y.</br>Sticker Subscription: Set isPurchase as S.| String| false|
+| price | If isPurchase is Y, the default price is set for stickers. </br> Default Price: Still Stickers [$0.99], Animated Stickers [$1.99]| String | false |
+| lang          | Specify default language for regional stickers.</br> Use a 2-letter ISO 639-1 language code. </br><b>Default Value: en</b> | String        | false          |
+| countryCode   | Specify default country for local stickers. </br> Use a 2-letter ISO 3166-1 country code.</br> <b>Default Value: US</b> | String        | false           |
+
+### Examples
+```js
+const params = {
+    packageId: 118,
+    userId: '9937'
+}
+
+const data = await client.downloadPack(params);
+```
+
+### Response Format
+```json
+{
+  {
+    "header": {
+      "code": "0000",
+      "status": "success",
+      "message": "success"
+    },
+    "body": []
+    }
+}
+```
+
+
+### downloadList()
+패키지 다운로드 리스트
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| pageNumber   | Specify pageNumber to show <b>limit</b> number of stickers per page. | Integer        | false             |
+| limit   | The maximum number of stickers per page. </br>Use pageNumber accordingly for optimized sticker view. </br> <b>Default Value: 20 (max: 50)</b> | Integer  | false  |
+
+
+### Examples
+```js
+const params = {
+    userId: '9937',
+    pageNumber: 1,
+    limit: 10
+}
+
+const data = await client.downloadList(params);
+```
+
+### Response Format
+```json
+{
+  {
+    "header": {
+      "code": "0000",
+      "status": "success",
+      "message": "success"
+    },
+    "body": {
+        "packageList": [
+        {
+            "packageId": 2309,                          
+            "packageName": "cada día",                    
+            "packageImg": "https://img....70AAeHBn4N.png", 
+            "packageCategory": "Animation/Cartoon,Gag", 
+            "packageKeywords": "bonito,mono,bello,adorable,life,cute,lovely", 
+            "packageAnimated": "N",                       
+            "isNew": "N",                               
+            "artistName": "pinono",                     
+            "language": "Spanish",                         
+            "isDownload": "Y",                             
+            "isWish": "N"					
+        },
+        {
+            "packageId": 2473,
+            "packageName": "¿Cómo estás?",
+            "packageImg": "https://img.....Ggdu7s3J15.gif",
+            "packageCategory": "Phrases,Etc.",
+            "packageKeywords": "¿Cómoestás?,letra",
+            "packageAnimated": "Y",
+            "isNew": "N",
+            "artistName": "annapig",
+            "language": "Spanish",
+            "isDownload": "Y",                             
+             "isWish": "N"					 
+        },
+        ......
+        ],
+        "pageMap": {
+          "pageNumber": 1,
+          "onePageCountRow": 10,
+          "totalCount": 2953,
+          "pageCount": 296,
+          "groupCount": 30,
+          "groupNumber": 0,
+          "pageGroupCount": 10,
+          "startPage": 1,
+          "endPage": 10,
+          "startRow": 0,
+          "endRow": 10,
+          "modNum": 3,
+          "listStartNumber": 2953
+        }
+    }
+}
+```
+
+
+| Attribute Name | Type | Description |
+| -------------- | ---- | ----------- |
+|packageId	|string|	Sticker package ID			     |
+|packageName	|int	|Sticker package name				     |
+|packageImg	|string|	Main image of sticker package		     |
+|packageCategory|int	|Sticker package category			     |
+|packageKeywords|string|	Sticker package keyword			     |
+|packageAnimated|int	|Is sticker animated (Y/N)			     |
+|isNew		|string|	Is sticker new (Y/N)			     |
+|artistName	|int	|Name of the artist				     |
+|language	|string|	Main language of sticker package	     |
+|isDownload	|string|	Is sticker downloaded by the user (Y/N)	     |
+|isWish		|string|	Is sticker in wish list (Y/N)		     |
+
+
 
