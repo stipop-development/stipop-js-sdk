@@ -936,3 +936,293 @@ const data = await client.downloadList(params);
 
 
 
+### init()
+유저 기본스티커 추가
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| lang          | Specify default language for regional stickers.</br> Use a 2-letter ISO 639-1 language code. </br><b>Default Value: en</b> | String        | false          |
+
+### Examples
+```js
+const params = {
+    userId: '9937',
+    lang: 'en'
+}
+
+const data = await client.init(params);
+```
+
+### Response Format
+```json
+{
+  "header": {
+    "code": "0000",
+    "status": "success",
+    "message": "success"
+  },
+  "body": []
+}
+```
+
+
+### mysticker()
+The My Sticker Packs API gives the list of stickers which a user has downloaded or purchased.
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| pageNumber   | Specify pageNumber to show <b>limit</b> number of stickers per page. | Integer        | false             |
+| limit   | The maximum number of stickers per page. </br>Use pageNumber accordingly for optimized sticker view. </br> <b>Default Value: 20 (max: 50)</b> | Integer  | false  |
+
+### Examples
+```js
+const params = {
+    userId: '9937',
+    pageNumber: 1,
+    limit : 10
+}
+
+const data = await client.mysticker(params);
+```
+
+### Response Format
+```json
+{
+  "header": {
+    "code": "0000",
+    "status": "success",
+    "message": "success"
+  },
+  "body": {
+    packageList: [
+      "packageList": [
+        {
+            "packageId": 2309,                          
+            "packageName": "cada día",                    
+            "packageImg": "https://img....70AAeHBn4N.png", 
+            "packageCategory": "Animation/Cartoon,Gag", 
+            "packageKeywords": "bonito,mono,bello,adorable,life,cute,lovely", 
+            "packageAnimated": "N",
+            "order": 7,
+            "isNew": "N",                               
+            "artistName": "pinono",                     
+            "language": "Spanish",                         
+            "isDownload": "Y",                             
+            "isWish": "N"					
+        },
+        {
+            "packageId": 2473,
+            "packageName": "¿Cómo estás?",
+            "packageImg": "https://img.....Ggdu7s3J15.gif",
+            "packageCategory": "Phrases,Etc.",
+            "packageKeywords": "¿Cómoestás?,letra",
+            "packageAnimated": "Y",
+            "order": 8,
+            "isNew": "N",
+            "artistName": "annapig",
+            "language": "Spanish",
+            "isDownload": "Y",                             
+             "isWish": "N"					 
+        },
+     ]
+    "pageMap": {
+      "pageNumber": 1,
+      "onePageCountRow": 20,
+      "totalCount": 2,
+      "pageCount": 1,
+      "groupCount": 1,
+      "groupNumber": 0,
+      "pageGroupCount": 10,
+      "startPage": 1,
+      "endPage": 1,
+      "startRow": 0,
+      "endRow": 20,
+      "modNum": 2,
+      "listStartNumber": 2
+    }
+  }
+}
+```
+
+| Attribute Name | Type | Description |
+| -------------- | ---- | ----------- |
+|packageId	|string|	Sticker package ID			     |
+|packageName	|int	|Sticker package name				     |
+|packageImg	|string|	Main image of sticker package		     |
+|packageCategory|int	|Sticker package category			     |
+|packageKeywords|string|	Sticker package keyword			     |
+|packageAnimated|int	|Is sticker animated (Y/N)			     |
+|order|int	| 순서			     |
+|isNew		|string|	Is sticker new (Y/N)			     |
+|artistName	|int	|Name of the artist				     |
+|language	|string|	Main language of sticker package	     |
+|isDownload	|string|	Is sticker downloaded by the user (Y/N)	     |
+|isWish		|string|	Is sticker in wish list (Y/N)		     |
+
+### mystickerHideList()
+The Hidden Sticker Packs API gives the list of sticker packs which a user has hidden (or deleted in case of free sticker packs) from the user’s my stickers list using the Hide/Recover My Pack API.
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| pageNumber   | Specify pageNumber to show <b>limit</b> number of stickers per page. | Integer        | false             |
+| limit   | The maximum number of stickers per page. </br>Use pageNumber accordingly for optimized sticker view. </br> <b>Default Value: 20 (max: 50)</b> | Integer  | false  |
+
+### Examples
+```js
+const params = {
+    userId: '9937',
+    pageNumber: 1,
+    limit : 10
+}
+
+const data = await client.mystickerHideList(params);
+```
+
+### Response Format
+```json
+{
+  "header": {
+    "code": "0000",
+    "status": "success",
+    "message": "success"
+  },
+  "body": {
+    packageList: [
+      "packageList": [
+        {
+            "packageId": 2309,                          
+            "packageName": "cada día",                    
+            "packageImg": "https://img....70AAeHBn4N.png", 
+            "packageCategory": "Animation/Cartoon,Gag", 
+            "packageKeywords": "bonito,mono,bello,adorable,life,cute,lovely", 
+            "packageAnimated": "N",                       
+            "isNew": "N",                               
+            "artistName": "pinono",                     
+            "language": "Spanish",                         
+            "isDownload": "Y",                             
+            "isWish": "N"					
+        },
+        {
+            "packageId": 2473,
+            "packageName": "¿Cómo estás?",
+            "packageImg": "https://img.....Ggdu7s3J15.gif",
+            "packageCategory": "Phrases,Etc.",
+            "packageKeywords": "¿Cómoestás?,letra",
+            "packageAnimated": "Y",
+            "isNew": "N",
+            "artistName": "annapig",
+            "language": "Spanish",
+            "isDownload": "Y",                             
+             "isWish": "N"					 
+        },
+     ]
+    "pageMap": {
+      "pageNumber": 1,
+      "onePageCountRow": 20,
+      "totalCount": 2,
+      "pageCount": 1,
+      "groupCount": 1,
+      "groupNumber": 0,
+      "pageGroupCount": 10,
+      "startPage": 1,
+      "endPage": 1,
+      "startRow": 0,
+      "endRow": 20,
+      "modNum": 2,
+      "listStartNumber": 2
+    }
+  }
+}
+```
+
+| Attribute Name | Type | Description |
+| -------------- | ---- | ----------- |
+|packageId	|string|	Sticker package ID			     |
+|packageName	|int	|Sticker package name				     |
+|packageImg	|string|	Main image of sticker package		     |
+|packageCategory|int	|Sticker package category			     |
+|packageKeywords|string|	Sticker package keyword			     |
+|packageAnimated|int	|Is sticker animated (Y/N)			     |
+|isNew		|string|	Is sticker new (Y/N)			     |
+|artistName	|int	|Name of the artist				     |
+|language	|string|	Main language of sticker package	     |
+|isDownload	|string|	Is sticker downloaded by the user (Y/N)	     |
+|isWish		|string|	Is sticker in wish list (Y/N)		     |
+
+
+### mystickerHide()
+The Hide/Recover My Sticker Pack API allows for the user to hide or recover any sticker packages from the user’s my sticker list.
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| packageId | The [packageId] of a sticker pack, NOT stickerId.</br>Example: 6363, 5636, 5859 | string | true|
+
+### Examples
+```js
+const params = {
+    userId: '9937',
+    packageId: '118'
+}
+
+const data = await client.mystickerHide(params);
+```
+
+### Response Format
+```json
+{
+  "header": {
+    "code": "0000",
+    "status": "success",
+    "message": "success"
+  },
+  "body": []
+}
+```
+
+### myStickerOrder()
+마이스티커 순서변경
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| currentOrder | 현재순서 | Integer | true|
+| newOrder | 바꿀순서 | Integer | true|
+
+### Examples
+```js
+const params = {
+    userId: '9937',
+    currentOrder: 7,
+    newOrder
+}
+
+const data = await client.mystickerHide(params);
+```
+
+### Response Format
+```json
+{
+  "header": {
+    "code": "0000",
+    "status": "success",
+    "message": "success"
+  },
+  "body": []
+}
+```
