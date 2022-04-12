@@ -1122,7 +1122,7 @@ const data = await client.mystickerHideList(params);
             "artistName": "annapig",
             "language": "Spanish",
             "isDownload": "Y",                             
-             "isWish": "N"					 
+            "isWish": "N"					 
         },
      ]
     "pageMap": {
@@ -1209,10 +1209,85 @@ const data = await client.mystickerHide(params);
 const params = {
     userId: '9937',
     currentOrder: 7,
-    newOrder
+    newOrder: 5
 }
 
 const data = await client.mystickerHide(params);
+```
+
+### Response Format
+```json
+{
+  "header": {
+    "code": "0000",
+    "status": "success",
+    "message": "success"
+  },
+  "body": []
+}
+```
+
+
+### myStickerFavoriteList()
+마이스티커 즐겨찾기 스티커 리스트
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+
+### Examples
+```js
+const params = {
+    userId: '9937'
+}
+
+const data = await client.myStickerFavoriteList(params);
+```
+
+### Response Format
+```json
+{
+  "header": {
+    "code": "0000",
+    "status": "success",
+    "message": "success"
+  },
+  "body": {
+    "favoriteList": [
+      {
+        "stickerId": 790,
+        "stickerImg": "https://img.....png",
+        "favoriteYN": "Y"
+      },
+      .....
+    ]
+  }
+}
+```
+
+
+### myStickerFavorite()
+즐겨찾기 지정
+
+
+### Params
+
+| Name          | Description           | Type          | Required          |
+| --------------| ----------------------| --------------| ------------------|
+| userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
+| stickerId | Sticker ID | string | true|
+
+### Examples
+```js
+const params = {
+    userId: '9937',
+    stickerId: 790
+}
+
+const data = await client.myStickerFavorite(params);
 ```
 
 ### Response Format
