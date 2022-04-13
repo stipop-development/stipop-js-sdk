@@ -1,22 +1,23 @@
 ## Stipop Javascript SDK
 
-> 스티팝 자바스크립트 sdk 간략설명 [문서링크](https://docs.stipop.io)
+> Quick guide to Stipop Javascript SDK 
+> [Link to Docs](https://docs.stipop.io/en)
 
 
 ## Installation
-stipop-js-sdk is installed on Linux, Mac OS or Windows without any issues.
+stipop-js-sdk can be installed on Linux, Mac OS or Windows without any issues.
 
 ```bash
 npm install --save stipop-js-sdk 
 ```
 
-## API 키 발급
-javascript sdk를 사용하려면 apikey가 필요하다.
+## Getting API key
+To use the Javascript SDK you need your api key.
 
-apikey는 [여기](https://dashboard.stipop.io)에서 회원가입 및 앱생성시 발급받을 수 있다.
+You can get the api key by signing up and creating an application in [Stipop Dashboard](https://dashboard.stipop.io).
 
 
-## 기본 사용법
+## Get started
 ### es5
 ```javascript
 const Stipop = require('stipop-js-sdk');
@@ -28,7 +29,7 @@ import Stipop from 'stipop-js-sdk';
 const client = new Stipop(`${YOUR_API_KEY}`, 'v1');
 ```
 
-## 기능 리스트
+## List of features
 
 | Method                                                            | Return Type         |
 | ----------------------------------------------------------------- | ------------------- |
@@ -733,7 +734,7 @@ const data = await client.getKeywordRecent(params);
 
 
 ### deleteKeywordAll()
-전체 키워드 삭제
+Delete all keywords
 
 
 ### Params
@@ -766,7 +767,7 @@ const data = await client.deleteKeywordAll(params);
 
 
 ### deleteKeyword()
-개별 키워드 삭제
+Delete individual keywords
 
 
 ### Params
@@ -774,7 +775,7 @@ const data = await client.deleteKeywordAll(params);
 | Name          | Description           | Type          | Required          |
 | --------------| ----------------------| --------------| ------------------|
 | userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
-| keyword | 삭제할 키워드 | String | true |
+| keyword | Keyword you'd like to delete | String | true |
 
 ### Examples
 ```js
@@ -839,7 +840,7 @@ const data = await client.downloadPack(params);
 
 
 ### downloadList()
-패키지 다운로드 리스트
+List of sticker packs downloaded
 
 ### Params
 
@@ -937,7 +938,7 @@ const data = await client.downloadList(params);
 
 
 ### init()
-유저 기본스티커 추가
+Add default stickers for users
 
 
 ### Params
@@ -1193,7 +1194,7 @@ const data = await client.mystickerHide(params);
 ```
 
 ### myStickerOrder()
-마이스티커 순서변경
+Change order of my sticker packs
 
 
 ### Params
@@ -1201,8 +1202,8 @@ const data = await client.mystickerHide(params);
 | Name          | Description           | Type          | Required          |
 | --------------| ----------------------| --------------| ------------------|
 | userId        | Unique value for every user to distinguish unique users. </br>The userId can be in any string format. </br> <b>Important</b>: Using same userId for multiple users is not allowed. |String        | true              |
-| currentOrder | 현재순서 | Integer | true|
-| newOrder | 바꿀순서 | Integer | true|
+| currentOrder | Current order of a sticker pack | Integer | true|
+| newOrder | New order of a sticker pack | Integer | true|
 
 ### Examples
 ```js
@@ -1229,7 +1230,7 @@ const data = await client.mystickerHide(params);
 
 
 ### myStickerFavoriteList()
-마이스티커 즐겨찾기 스티커 리스트
+List of my favorite stickers
 
 
 ### Params
@@ -1270,7 +1271,7 @@ const data = await client.myStickerFavoriteList(params);
 
 
 ### myStickerFavorite()
-즐겨찾기 지정
+Selecting my favorite stickers
 
 
 ### Params
