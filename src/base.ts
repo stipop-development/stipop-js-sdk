@@ -50,11 +50,7 @@ export abstract class Base {
         };
 
         const config : object = {
-            headers:{
-                apikey : this.apiKey,
-                'content-type' : 'application/json',
-                s_meta : this.s_meta
-            },
+            headers,
             method:"get"
         };
 
