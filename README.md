@@ -475,7 +475,7 @@ const data = await client.getPackFrequentlySticker(params);
 |stickerImg	|string	|Sticker image url			    |
 
 ### getCuration()
-큐레이션 리스트 가져오기
+Get list of curation stickers
 
 
 ### Params
