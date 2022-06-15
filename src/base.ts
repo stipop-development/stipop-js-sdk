@@ -33,7 +33,7 @@ export abstract class Base {
     private liveUrl: string = "https://messenger.stipop.io/";
     private url:string;
     private version: string;
-    private s_meta = `{"platform": "web", "sdk_version": "0.0.3-beta", "os_version":null}`;
+    private s_meta = `{"platform": "web", "sdk_version": "0.1.0-beta", "os_version":null}`;
 
     constructor(apiKey:string, version:string, isDev:boolean) {
         this.apiKey = apiKey;

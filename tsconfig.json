@@ -7,6 +7,14 @@
     "skipLibCheck": true, /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
     "declaration": true,
-    "outDir": "./dist"
-  }
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  },
+  "exclude" : [
+    "node_modules"
+  ],
+  "include": [
+    "./src/*"
+  ]
 }
