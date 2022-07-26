@@ -8,7 +8,7 @@ const path = '/analytics';
 
 export class Analytics extends Base {
 
-    sendAnalytics (params?:AnalyticsSendParams) {
+    sendAnalytics (params:AnalyticsSendParams, accessToken:string) {
 
         let query = `${path}/send/${params?.stickerId}`;
 
@@ -16,7 +16,7 @@ export class Analytics extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.post<string, any>(query, null);
+        return this.post<string, any>(query, null, accessToken);
     }
 
 }

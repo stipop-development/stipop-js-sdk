@@ -8,7 +8,7 @@ const path = '/gift';
 
 export class Gift extends Base {
     
-    sendGift(params:giftParams) {
+    sendGift(params:giftParams, accessToken:string) {
 
         let query = `${path}/send/${params?.userId}`;
 
@@ -16,11 +16,11 @@ export class Gift extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 
-    receiveGift(params:giftParams) {
+    receiveGift(params:giftParams, accessToken:string) {
 
         let query = `${path}/receive/${params?.userId}`;
 
@@ -28,7 +28,7 @@ export class Gift extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 

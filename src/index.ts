@@ -7,6 +7,7 @@ import { Download } from './download';
 import { Gift } from './gift';
 import { Init } from './init';
 import { Mysticker } from './mysticker';
+import { Access } from './token';
 import { Base } from './base';
 
 
@@ -14,11 +15,11 @@ class Stipop extends Base {
 
 }
 
-interface Stipop extends StickerPackage, SearchSticker, Analytics, Curation, Download, Gift, Init, Mysticker {
+interface Stipop extends StickerPackage, SearchSticker, Analytics, Curation, Download, Gift, Init, Mysticker, Access {
 
 }
 
-applyMixins(Stipop, [StickerPackage, SearchSticker, Analytics, Curation, Download, Gift, Init, Mysticker]);
+applyMixins(Stipop, [StickerPackage, SearchSticker, Analytics, Curation, Download, Gift, Init, Mysticker, Access]);
 
 function applyMixins(derivedCtor: any, constructors: any[]) {
     constructors.forEach((baseCtor) => {

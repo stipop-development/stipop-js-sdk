@@ -11,7 +11,7 @@ const path = '/search';
 
 export class SearchSticker extends Base {
 
-    getSearch (params?:StickerSearchParams) {
+    getSearch (params:StickerSearchParams, accessToken:string) {
 
         let query = `${path}`;
 
@@ -19,10 +19,10 @@ export class SearchSticker extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
     }
 
-    getKeyword (params?:StickerSearchKeywordParams) {
+    getKeyword (params:StickerSearchKeywordParams, accessToken:string) {
 
         let query = `${path}/keyword`;
 
@@ -30,10 +30,10 @@ export class SearchSticker extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
     }
 
-    getKeywordRecent (params?:StickerSearchKeywordParams) {
+    getKeywordRecent (params:StickerSearchKeywordParams, accessToken:string) {
 
         let query = `${path}/recent`;
 
@@ -41,21 +41,21 @@ export class SearchSticker extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
     }
 
-    deleteKeywordAll (params?:StickerSearchKeywordParams) {
+    deleteKeywordAll (params:StickerSearchKeywordParams, accessToken:string) {
 
         let query = `${path}/recent/${params?.userId}`;
 
-        return this.delete<string>(query);
+        return this.delete<string>(query, accessToken);
     }
 
-    deleteKeyword (params?:StickerSearchKeywordParams) {
+    deleteKeyword (params:StickerSearchKeywordParams, accessToken:string) {
 
         let query = `${path}/recent/${params?.userId}/${params?.keyword}`;
 
-        return this.delete<string>(query);
+        return this.delete<string>(query, accessToken);
     }
 
 

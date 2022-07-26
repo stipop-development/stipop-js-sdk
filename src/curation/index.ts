@@ -9,7 +9,7 @@ const path = '/curation';
 
 export class Curation extends Base {
 
-    getCuration (params:CardParams) {
+    getCuration (params:CardParams, accessToken:string) {
         
         let query = `${path}/type/${params.type}`;
 
@@ -17,7 +17,7 @@ export class Curation extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
     }
 
 }

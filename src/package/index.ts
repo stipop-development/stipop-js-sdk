@@ -11,7 +11,7 @@ const path = '/package';
 
 export class StickerPackage extends Base {
 
-    getPack (params?:StickerPackListParams) {
+    getPack (params:StickerPackListParams, accessToken:string) {
 
         let query = `${path}`;
 
@@ -19,10 +19,10 @@ export class StickerPackage extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
     }
 
-    getPackInfo (params:StickerPackInfoParams) {
+    getPackInfo (params:StickerPackInfoParams, accessToken:string) {
 
         let query = `${path}/${params.packId}`;
 
@@ -30,11 +30,11 @@ export class StickerPackage extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 
-    getPackRecent (params:StickerPackInfoParams) {
+    getPackRecent (params:StickerPackInfoParams, accessToken:string) {
 
         let query = `${path}/recent/${params.userId}`
 
@@ -42,11 +42,11 @@ export class StickerPackage extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 
-    getPackSendSticker (params:StickerPackListParams) {
+    getPackSendSticker (params:StickerPackListParams, accessToken:string) {
         
         let query = `${path}/send/${params.userId}`
 
@@ -54,11 +54,11 @@ export class StickerPackage extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 
-    getPackFrequentlySticker (params:StickerPackListParams) {
+    getPackFrequentlySticker (params:StickerPackListParams, accessToken:string) {
 
         let query = `${path}/frequently/${params.userId}`
 
@@ -66,7 +66,7 @@ export class StickerPackage extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 

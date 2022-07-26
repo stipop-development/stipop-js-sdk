@@ -9,7 +9,7 @@ const path = '/mysticker';
 
 export class Mysticker extends Base {
     
-    mySticker(params:myStickerParams) {
+    mySticker(params:myStickerParams, accessToken:string) {
 
         let query = `${path}/${params?.userId}`;
 
@@ -17,11 +17,11 @@ export class Mysticker extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 
-    myStickerHideList(params:myStickerParams) {
+    myStickerHideList(params:myStickerParams, accessToken:string) {
         
         let query = `${path}/hide/${params?.userId}`;
 
@@ -29,27 +29,27 @@ export class Mysticker extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 
-    myStickerHide(params:myStickerParams) {
+    myStickerHide(params:myStickerParams, accessToken:string) {
         
         const query = `${path}/hide/${params?.userId}/${params?.packageId}`;
 
-        return this.put<string, any>(query, null);
+        return this.put<string, any>(query, null, accessToken);
 
     }
 
-    myStickerOrder(params:myStickerOrderParams) {
+    myStickerOrder(params:myStickerOrderParams, accessToken:string) {
         
         const query = `${path}/order/${params?.userId}`;
 
-        return this.put<string, object>(query, params);
+        return this.put<string, object>(query, params, accessToken);
 
     }
 
-    myStickerFavoriteList(params:myStickerParams) {
+    myStickerFavoriteList(params:myStickerParams, accessToken:string) {
 
         let query = `${path}/favorite/${params?.userId}`;
 
@@ -57,15 +57,15 @@ export class Mysticker extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 
-    myStickerFavorite(params:myStickerOrderParams) {
+    myStickerFavorite(params:myStickerOrderParams, accessToken:string) {
         
         const query = `${path}/favorite/${params?.userId}`;
 
-        return this.put<string, object>(query, params);
+        return this.put<string, object>(query, params, accessToken);
 
     }
 

@@ -9,7 +9,7 @@ const path = '/download';
 
 export class Download extends Base {
     
-    download(params:downloadParams) {
+    download(params:downloadParams, accessToken:string) {
 
         let query = `${path}/${params?.packageId}`;
 
@@ -17,11 +17,11 @@ export class Download extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.post<string, any>(query, null);
+        return this.post<string, any>(query, null, accessToken);
 
     }
 
-    downloadList(params:downloadListParams) {
+    downloadList(params:downloadListParams, accessToken:string) {
 
         let query = `${path}/${params.userId}`;
 
@@ -29,7 +29,7 @@ export class Download extends Base {
             query += qs.stringify(params, '?');
         }
 
-        return this.get<string>(query);
+        return this.get<string>(query, accessToken);
 
     }
 
